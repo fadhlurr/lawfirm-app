@@ -106,15 +106,28 @@ export default function Consultation() {
               Form kontak bukan saluran yang aman, dan hubungan advokat-klien
               belum terbentuk sampai ada perikatan tertulis. */}
           <p className="form-note">
-            Mengirim formulir ini belum membentuk hubungan advokat–klien. Jangan
-            kirimkan dokumen atau keterangan yang bersifat sangat rahasia sebelum
-            kita sepakat mengenai perikatan.
+            {site.isDemo ? (
+              <>
+                <strong>Formulir ini bagian dari demo.</strong> Kiriman memang
+                tersimpan ke database supaya alurnya bisa dilihat bekerja, tetapi
+                tidak ada advokat yang membacanya dan tidak akan ada yang
+                menghubungi Anda. Jangan menuliskan persoalan hukum yang
+                sebenarnya, nama pihak lain, atau data pribadi apa pun.
+              </>
+            ) : (
+              <>
+                Mengirim formulir ini belum membentuk hubungan advokat–klien. Jangan
+                kirimkan dokumen atau keterangan yang bersifat sangat rahasia sebelum
+                kita sepakat mengenai perikatan.
+              </>
+            )}
           </p>
 
           {status === 'success' && (
             <p className="form-status success">
-              Permintaan Anda sudah kami terima. Kami menghubungi kembali dalam
-              2×24 jam kerja.
+              {site.isDemo
+                ? 'Tersimpan. Ini demo — tidak ada yang akan menghubungi Anda.'
+                : 'Permintaan Anda sudah kami terima. Kami menghubungi kembali dalam 2×24 jam kerja.'}
             </p>
           )}
           {status === 'error' && <p className="form-status error">{errorMsg}</p>}

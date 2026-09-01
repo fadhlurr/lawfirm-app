@@ -109,6 +109,26 @@ Tautan silang bidang praktik ↔ tulisan dipetakan lewat kolom `practiceAreaSlug
 pada `insights`, bukan tabel terpisah — cukup untuk satu tulisan yang membahas
 satu bidang, dan cukup untuk mengisi kedua arah tautannya.
 
+## Mode demo
+
+`frontend/src/siteConfig.js` punya flag `isDemo`. Selama nilainya `true`:
+
+- Banner peringatan tampil di setiap halaman, dan **tidak bisa ditutup** —
+  tombol tutup akan menyembunyikannya tepat dari orang yang paling perlu
+  membacanya
+- `<meta name="robots" content="noindex, nofollow">` dan `robots.txt`
+  `Disallow: /` menolak pengindeksan. Orang yang mencari "kantor hukum jakarta"
+  tidak boleh mendarat di sini tanpa konteks
+- Structured data `LegalService` **dihapus** — gunanya justru memberi tahu mesin
+  pencari bahwa ini penyedia jasa hukum sungguhan dengan alamat dan jam kerja
+- `barNumber` semua advokat `null`. Nama karangan masih terbaca sebagai
+  karangan; nomor induk advokat terbaca sebagai kredensial yang bisa
+  diverifikasi, dan memalsukannya adalah jenis kebohongan yang berbeda
+- Form konsultasi menyatakan terus terang tidak ada yang membacanya
+
+Mengubahnya jadi `false` mematikan seluruh pengaman itu sekaligus. Jangan
+lakukan sebelum daftar di bawah selesai.
+
 ## Yang harus diganti sebelum dipakai kantor sungguhan
 
 Konten hasil `npm run seed` adalah **contoh untuk kantor fiktif**. Sebelum
@@ -121,6 +141,13 @@ tayang, ganti:
 3. `frontend/index.html` — judul, deskripsi, canonical, dan blok JSON-LD
    `LegalService` (alamat dan jam kerja dipakai Google untuk pencarian lokal).
 4. `frontend/public/robots.txt` dan `og-image.png` (1200×630, belum disertakan).
+5. `isDemo` jadi `false` di `frontend/src/siteConfig.js` — **paling akhir**,
+   setelah keempat langkah di atas benar-benar selesai.
+
+Catatan kalau menyunting `seedData.js`: menghapus sebuah field dari objek
+**tidak** mengosongkan kolomnya di baris yang sudah ada — `update` hanya
+menyentuh field yang disebut, jadi nilai lama bertahan diam-diam. Tulis `null`
+secara eksplisit kalau memang ingin mengosongkan.
 
 ## Catatan operasional
 

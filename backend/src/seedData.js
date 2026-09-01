@@ -4,8 +4,13 @@
 // logika penyimpanan — dan supaya bisa dipakai ulang, misalnya oleh stub API
 // saat mengembangkan tampilan tanpa menyalakan database.
 //
-// SEMUA ISI DI SINI KARANGAN: nama advokat, nomor induk PERADI, dan alamat.
+// SEMUA ISI DI SINI KARANGAN: nama advokat dan alamat kantor.
 // Ganti seluruhnya sebelum situs dipakai kantor sungguhan.
+//
+// barNumber sengaja dikosongkan selama isinya masih fiktif. Nama karangan
+// masih terbaca sebagai karangan; nomor induk advokat terbaca sebagai
+// kredensial yang bisa diverifikasi ke PERADI, dan memalsukannya adalah jenis
+// kebohongan yang berbeda. Halaman profil menyembunyikan barisnya kalau kosong.
 
 const practiceAreas = [
   {
@@ -127,8 +132,9 @@ const lawyers = [
     slug: 'arkana-wijaya',
     name: 'Arkana Wijaya, S.H., M.H.',
     position: 'Managing Partner',
+    // Dikosongkan selama isinya fiktif — lihat catatan di kepala berkas.
+    barNumber: null,
     order: 1,
-    barNumber: 'PERADI 09.11234',
     email: 'arkana@arkanarekan.id',
     bio:
       'Mendirikan Arkana & Rekan pada 2016 setelah sembilan tahun menangani sengketa komersial di kantor hukum besar Jakarta. Fokusnya litigasi bernilai besar dan restrukturisasi utang, dengan pengalaman beracara di Pengadilan Niaga dan arbitrase BANI.\n\nKebiasaannya yang paling dikenal klien: menolak perkara yang menurut hitungannya lebih mahal untuk diperkarakan daripada diselesaikan. Menurutnya, nasihat yang paling bernilai justru yang membuat kantor ini kehilangan honorarium beracara.',
@@ -143,8 +149,9 @@ const lawyers = [
     slug: 'nadira-halim',
     name: 'Nadira Halim, S.H., LL.M.',
     position: 'Partner',
+    // Dikosongkan selama isinya fiktif — lihat catatan di kepala berkas.
+    barNumber: null,
     order: 2,
-    barNumber: 'PERADI 09.14872',
     email: 'nadira@arkanarekan.id',
     bio:
       'Memimpin praktik korporasi dan investasi. Menangani pendirian PT PMA, uji tuntas hukum untuk transaksi penyertaan modal, dan penyusunan perjanjian pemegang saham untuk perusahaan rintisan tahap awal sampai seri B.\n\nSebelum bergabung pada 2019, bekerja di divisi hukum sebuah perusahaan teknologi — pengalaman yang membuatnya menulis perjanjian dengan mempertimbangkan siapa yang nanti harus menjalankannya, bukan hanya siapa yang menandatanganinya.',
@@ -159,8 +166,9 @@ const lawyers = [
     slug: 'bimo-prasetyo',
     name: 'Bimo Prasetyo, S.H.',
     position: 'Senior Associate',
+    // Dikosongkan selama isinya fiktif — lihat catatan di kepala berkas.
+    barNumber: null,
     order: 3,
-    barNumber: 'PERADI 09.18305',
     email: 'bimo@arkanarekan.id',
     bio:
       'Menangani perselisihan hubungan industrial dan perkara pertanahan. Rutin mendampingi perundingan bipartit dan mediasi di dinas ketenagakerjaan, serta beracara di Pengadilan Hubungan Industrial Jakarta Pusat.\n\nBanyak mengerjakan audit kepatuhan ketenagakerjaan untuk perusahaan menengah — memeriksa perjanjian kerja, peraturan perusahaan, dan catatan lembur sebelum semuanya jadi bukti dalam perkara.',
@@ -174,8 +182,9 @@ const lawyers = [
     slug: 'salsabila-rahman',
     name: 'Salsabila Rahman, S.H.',
     position: 'Associate',
+    // Dikosongkan selama isinya fiktif — lihat catatan di kepala berkas.
+    barNumber: null,
     order: 4,
-    barNumber: 'PERADI 09.21649',
     email: 'salsabila@arkanarekan.id',
     bio:
       'Menangani perkara keluarga dan waris di Pengadilan Agama serta Pengadilan Negeri, dan mendampingi klien pada pemeriksaan tahap penyidikan.\n\nMenaruh perhatian besar pada perkara hak asuh, dan biasanya memulai dengan menyusun jadwal pengasuhan yang bisa dijalankan kedua pihak sebelum membahas hal lain — karena kesepakatan yang tidak realistis akan kembali jadi perkara dalam setahun.',

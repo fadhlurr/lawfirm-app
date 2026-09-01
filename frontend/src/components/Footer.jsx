@@ -48,6 +48,12 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <p className="foot-disclaimer">
+            {site.isDemo && (
+              <>
+                <strong>{site.demoNotice}</strong>
+                <br />
+              </>
+            )}
             Isi situs ini bersifat umum dan bukan nasihat hukum atas perkara tertentu.
             Hubungan advokat–klien baru terbentuk melalui perikatan tertulis.
           </p>

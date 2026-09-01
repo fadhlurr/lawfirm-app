@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import DemoBanner from './components/DemoBanner';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <DemoBanner />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

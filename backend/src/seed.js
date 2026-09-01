@@ -14,6 +14,10 @@ if (process.env.NODE_ENV === 'production' && process.env.ALLOW_SEED !== 'true') 
 
 const { practiceAreas, lawyers, insights } = require('./seedData');
 
+// Catatan: update hanya menyentuh kolom yang ada di objek baris. Menghapus
+// sebuah field dari seedData TIDAK mengosongkan kolomnya di baris yang sudah
+// ada — nilai lamanya bertahan diam-diam. Untuk benar-benar mengosongkan,
+// tulis field itu secara eksplisit sebagai null.
 async function upsertBySlug(Model, rows, label) {
   for (const row of rows) {
     const existing = await Model.findOne({ where: { slug: row.slug } });

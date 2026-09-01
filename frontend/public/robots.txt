@@ -1,4 +1,8 @@
+# Situs ini demo portfolio yang menampilkan kantor hukum fiktif.
+#
+# Pengindeksan ditolak dengan sengaja: orang yang mencari "kantor hukum jakarta"
+# dan mendarat di sini bisa mengira ini kantor sungguhan, lalu mengirimkan
+# persoalan hukumnya ke formulir yang tidak ada yang membaca. Hapus blokir ini
+# hanya kalau seluruh isinya sudah diganti jadi kantor yang benar-benar ada.
 User-agent: *
-Allow: /
-
-Sitemap: https://www.arkanarekan.id/sitemap.xml
+Disallow: /

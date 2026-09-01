@@ -4,6 +4,14 @@
 // meninggalkan alamat lama di suatu tempat yang baru ketahuan berbulan-bulan
 // kemudian.
 export const site = {
+  // Situs ini tayang sebagai contoh kerja, bukan sebagai kantor hukum yang
+  // menerima klien. Selama nilainya true, banner demo tampil, halaman ditolak
+  // dari pengindeksan, dan form konsultasi menyatakan tidak ada yang membacanya.
+  // Kalau kontennya suatu saat diganti jadi kantor sungguhan, ubah ke false —
+  // dan periksa ulang seluruh daftar di README bagian "sebelum dipakai kantor
+  // sungguhan" sebelum melakukannya.
+  isDemo: true,
+
   name: 'Arkana & Rekan',
   legalName: 'Kantor Hukum Arkana & Rekan',
   tagline: 'Advokat & Konsultan Hukum',
@@ -26,4 +34,9 @@ export const site = {
   // batas waktu yang jelas berakhir jadi sumber salah paham, jadi batasnya
   // disebut di muka.
   consultationNote: 'Konsultasi awal 30 menit tanpa biaya.',
+
+  // Ditampilkan di banner atas dan di footer saat isDemo true.
+  demoNotice:
+    'Situs ini contoh hasil kerja (portfolio), bukan kantor hukum sungguhan. ' +
+    'Nama advokat, alamat, dan seluruh isinya fiktif.',
 };

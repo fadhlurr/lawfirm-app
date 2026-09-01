@@ -1,6 +1,7 @@
 import { api } from '../api/client';
 import { useResource } from '../api/useResource';
 import LawyerCard from './LawyerCard';
+import { site } from '../siteConfig';
 
 export default function Team() {
   const { data: lawyers, status } = useResource(() => api.getLawyers());
@@ -13,8 +14,9 @@ export default function Team() {
         <p className="eyebrow">Tim</p>
         <h2 className="sec-title">Siapa yang akan menangani perkara Anda</h2>
         <p className="sec-desc">
-          Nomor induk advokat setiap orang tercantum di halaman profilnya, dan bisa
-          Anda cocokkan sendiri dengan pangkalan data PERADI.
+          {site.isDemo
+            ? 'Keempat profil di bawah ini fiktif, dibuat untuk memperlihatkan bagaimana halaman tim bekerja. Kantor sungguhan mencantumkan nomor induk advokat di sini supaya bisa dicocokkan ke pangkalan data PERADI.'
+            : 'Nomor induk advokat setiap orang tercantum di halaman profilnya, dan bisa Anda cocokkan sendiri dengan pangkalan data PERADI.'}
         </p>
 
         {status === 'loading' && <p className="state">Memuat profil tim…</p>}

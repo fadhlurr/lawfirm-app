@@ -302,3 +302,18 @@ footer{border-top:1px solid var(--line);background:var(--paper-2);padding:64px 0
   .info-line{flex-direction:column;gap:4px;}
   .info-line b{width:auto;}
 }
+
+/* ---------- Banner demo ----------
+   Kuning peringatan yang sama di terang dan gelap, sengaja tidak ikut token
+   tema: peringatan yang menyatu dengan desain halaman akan terbaca sebagai
+   bagian dari desain, bukan sebagai peringatan. */
+.demo-banner{background:#8A6410;color:#FFF8E7;border-bottom:1px solid #6E4F0C;}
+.demo-banner-inner{max-width:1160px;margin:0 auto;padding:11px 28px;
+  display:flex;align-items:flex-start;gap:11px;}
+.demo-banner svg{width:17px;height:17px;flex:none;margin-top:2px;}
+.demo-banner p{margin:0;font-size:13.5px;line-height:1.5;}
+.demo-banner strong{font-weight:700;}
+@media(max-width:640px){
+  .demo-banner-inner{padding:10px 20px;}
+  .demo-banner p{font-size:12.5px;}
+}
