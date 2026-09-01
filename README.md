@@ -103,7 +103,13 @@ curl -X POST http://localhost:4000/api/practice-areas \
 - **Lawyer** — `name, slug, position, photoUrl, bio, education[], practiceAreas[], barNumber, email, order`
 - **Insight** — `title, slug, excerpt, content, category, author, practiceAreaSlug, publishedAt`
 - **Consultation** — `name, email, phone, practiceAreaSlug, message, status, notes`
-- **User** — tabel `admin_users`, email + hash bcrypt
+- **User** — tabel `lawfirm_admin_users`, email + hash bcrypt
+
+Nama tabel admin sengaja diberi awalan aplikasi. Plan gratis Supabase membatasi
+jumlah project, jadi berbagi satu database dengan aplikasi lain adalah hal
+biasa — dan `admin_users` bentrok dengan portofolio-app yang memakai nama dan
+kolom yang persis sama. Tabel lain (`practice_areas`, `lawyers`, `insights`,
+`consultations`) tidak bentrok dengan aplikasi mana pun.
 
 Tautan silang bidang praktik ↔ tulisan dipetakan lewat kolom `practiceAreaSlug`
 pada `insights`, bukan tabel terpisah — cukup untuk satu tulisan yang membahas

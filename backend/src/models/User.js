@@ -16,9 +16,15 @@ const User = sequelize.define('User', {
   passwordHash: { type: DataTypes.STRING, allowNull: false },
   name: { type: DataTypes.STRING, allowNull: false },
 }, {
-  // Sengaja bukan 'users'. Database terkelola sering dipakai bareng aplikasi
-  // lain, dan 'users' adalah nama tabel yang paling mungkin sudah dipakai.
-  tableName: 'admin_users',
+  // Diberi awalan nama aplikasi, bukan 'users' atau 'admin_users'.
+  //
+  // Database terkelola sering dipakai bareng aplikasi lain — plan gratis
+  // membatasi jumlah project, sehingga berbagi satu database jadi hal biasa.
+  // 'users' hampir pasti sudah dipakai, dan 'admin_users' pun ternyata bentrok
+  // dengan portofolio-app yang memakai nama persis sama beserta kolom yang
+  // sama. Kalau dibiarkan, dua aplikasi akan berbagi akun admin tanpa ada yang
+  // menyadarinya: login ke satu situs otomatis membuka situs lainnya.
+  tableName: 'lawfirm_admin_users',
   timestamps: true,
 });
 
