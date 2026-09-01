@@ -1,0 +1,304 @@
+/* ============================================================
+   Design token.
+   Ivory + navy tua + aksen kuningan. Aksen dipakai hemat —
+   pada situs kantor hukum, warna yang tampil terlalu sering
+   membuat halaman terbaca seperti brosur promosi.
+   ============================================================ */
+:root{
+  --paper:#FBFAF8;
+  --paper-2:#F2EFE9;
+  --ink:#0E1A2B;
+  --ink-soft:#55606F;
+  --line:#E2DDD3;
+  --accent:#9A7B45;
+  --accent-soft:#F0E9DC;
+  --card:#FFFFFF;
+  --danger:#A8382C;
+  --radius:4px;   /* sudut nyaris tegak; membaca lebih formal daripada kartu membulat */
+  --shadow:0 24px 48px -32px rgba(14,26,43,.35);
+}
+html.dark{
+  --paper:#0C121C;
+  --paper-2:#121A26;
+  --ink:#E9EDF2;
+  --ink-soft:#9AA6B5;
+  --line:#222C3A;
+  --accent:#C6A467;
+  --accent-soft:#1A222E;
+  --card:#121A26;
+  --danger:#E08376;
+  --shadow:0 24px 48px -32px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{max-width:100%;overflow-x:hidden;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  transition:background .35s ease,color .35s ease;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;text-decoration:none;}
+.serif{font-family:'Playfair Display',Georgia,serif;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+
+/* Label huruf kapital kecil — dipakai sebagai penanda bagian, menggantikan
+   pil berwarna yang terlalu ramai untuk konteks ini. */
+.eyebrow{
+  font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.eyebrow::after{content:'';height:1px;flex:1;max-width:64px;background:var(--line);}
+
+.sec-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.6vw,42px);
+  font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0 0 16px;}
+.sec-desc{color:var(--ink-soft);font-size:16.5px;line-height:1.75;max-width:620px;margin:0 0 56px;}
+
+section{padding:104px 0;border-top:1px solid var(--line);}
+
+/* ---------- Tombol ---------- */
+.btn-primary{
+  background:var(--ink);color:var(--paper);padding:15px 28px;border-radius:var(--radius);
+  font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--ink);cursor:pointer;transition:opacity .2s ease,transform .2s ease;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px);}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.btn-ghost{
+  background:transparent;color:var(--ink);padding:15px 28px;border:1px solid var(--line);
+  border-radius:var(--radius);font-size:14.5px;font-weight:600;display:inline-flex;
+  align-items:center;gap:10px;cursor:pointer;transition:border-color .2s ease,color .2s ease;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.link-arrow{
+  font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:8px;
+  transition:gap .2s ease;
+}
+.link-arrow:hover{gap:13px;}
+
+/* ---------- Nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:18px 28px;max-width:1160px;margin:0 auto;}
+.logo{display:flex;flex-direction:column;line-height:1.1;}
+.logo b{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-.01em;}
+.logo span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+.nav-links{display:flex;gap:32px;font-size:14.5px;color:var(--ink-soft);}
+.nav-links a{padding:2px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;}
+.nav-links a:hover{color:var(--ink);border-color:var(--accent);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.toggle-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);flex:none;}
+.toggle-btn:hover{border-color:var(--accent);color:var(--accent);}
+.toggle-btn svg{width:17px;height:17px;}
+.nav-cta{font-size:14px;font-weight:600;padding:11px 20px;border-radius:var(--radius);
+  background:var(--ink);color:var(--paper);white-space:nowrap;}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius);
+  width:38px;height:38px;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;}
+
+/* ---------- Hero ---------- */
+.hero{padding:96px 0 88px;border-top:none;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:clamp(38px,5vw,62px);line-height:1.08;letter-spacing:-.015em;margin:0 0 24px;}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero p.lead{font-size:18px;line-height:1.75;color:var(--ink-soft);max-width:520px;margin:0 0 36px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--line);}
+.hero-stat b{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:600;display:block;}
+.hero-stat span{font-size:13px;color:var(--ink-soft);}
+.hero-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:36px;box-shadow:var(--shadow);}
+.hero-panel h3{font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;margin:0 0 8px;}
+.hero-panel > p{font-size:14.5px;color:var(--ink-soft);margin:0 0 26px;line-height:1.65;}
+.panel-row{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);}
+.panel-row span{font-family:'Playfair Display',Georgia,serif;color:var(--accent);font-size:15px;flex:none;width:22px;}
+.panel-row p{margin:0;font-size:14px;line-height:1.6;color:var(--ink-soft);}
+.panel-row p b{color:var(--ink);font-weight:600;display:block;font-size:14.5px;margin-bottom:2px;}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start;}
+.about-grid p{font-size:16.5px;line-height:1.85;color:var(--ink-soft);margin:0 0 20px;}
+.about-quote{border-left:2px solid var(--accent);padding-left:24px;
+  font-family:'Playfair Display',Georgia,serif;font-size:20px;font-style:italic;
+  line-height:1.6;color:var(--ink);margin:32px 0 0;}
+
+/* ---------- Values ---------- */
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.value-card{background:var(--card);padding:36px 28px;transition:background .25s;}
+.value-card:hover{background:var(--accent-soft);}
+.value-num{font-family:'Playfair Display',Georgia,serif;font-size:14px;color:var(--accent);
+  letter-spacing:.08em;margin-bottom:24px;}
+.value-card h3{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;margin:0 0 10px;}
+.value-card p{font-size:14px;color:var(--ink-soft);line-height:1.65;margin:0;}
+
+/* ---------- Practice areas ---------- */
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.practice-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 28px;display:flex;flex-direction:column;
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
+.practice-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow);}
+.practice-icon{width:44px;height:44px;border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:24px;}
+.practice-icon svg{width:20px;height:20px;}
+.practice-card h3{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;
+  margin:0 0 12px;line-height:1.3;}
+.practice-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 24px;flex:1;}
+
+/* ---------- Team ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.lawyer-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:var(--card);transition:border-color .25s ease,transform .25s ease;}
+.lawyer-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.lawyer-photo{aspect-ratio:3/3.6;background:linear-gradient(165deg,var(--accent-soft),var(--paper-2));
+  display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);
+  overflow:hidden;}
+.lawyer-photo img{width:100%;height:100%;object-fit:cover;}
+/* Inisial dipakai kalau foto belum ada. Lebih baik daripada gambar siluet
+   generik, yang membuat halaman tim terlihat seperti belum diisi. */
+.lawyer-initials{font-family:'Playfair Display',Georgia,serif;font-size:38px;color:var(--accent);opacity:.6;}
+.lawyer-body{padding:22px 20px;}
+.lawyer-body h3{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;
+  margin:0 0 6px;line-height:1.35;}
+.lawyer-position{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 14px;}
+.lawyer-areas{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-size:11.5px;background:var(--paper-2);border:1px solid var(--line);
+  padding:5px 10px;border-radius:999px;color:var(--ink-soft);}
+
+/* ---------- Insights ---------- */
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.insight-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;display:flex;flex-direction:column;
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
+.insight-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow);}
+.insight-meta{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--ink-soft);
+  margin-bottom:16px;}
+.insight-meta .cat{color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.insight-card h3{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;
+  margin:0 0 12px;line-height:1.35;}
+.insight-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 22px;flex:1;}
+
+/* ---------- Konsultasi ---------- */
+.consult-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start;}
+.info-line{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:15px;}
+.info-line b{flex:none;width:112px;font-weight:600;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-soft);padding-top:2px;}
+.info-line span{color:var(--ink);line-height:1.6;}
+form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;}
+.field{margin-bottom:20px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+label{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:8px;color:var(--ink);}
+label .optional{font-weight:400;color:var(--ink-soft);letter-spacing:0;}
+input,textarea,select{
+  width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--paper);color:var(--ink);font-family:inherit;font-size:15px;
+  transition:border-color .2s ease;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
+textarea{min-height:132px;resize:vertical;line-height:1.6;}
+.form-note{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 22px;}
+.form-status{font-size:14px;padding:14px 16px;border-radius:var(--radius);margin:0 0 18px;line-height:1.6;}
+.form-status.success{background:var(--accent-soft);color:var(--ink);border:1px solid var(--accent);}
+.form-status.error{background:transparent;color:var(--danger);border:1px solid var(--danger);}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--paper-2);padding:64px 0 32px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.foot-grid h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  margin:0 0 18px;font-weight:600;}
+.foot-grid ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+.foot-grid li a{font-size:14.5px;color:var(--ink-soft);transition:color .2s;}
+.foot-grid li a:hover{color:var(--accent);}
+.foot-about p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;margin:16px 0 0;max-width:340px;}
+.foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);}
+/* Disclaimer bukan basa-basi hukum: tanpa ini, artikel di halaman Wawasan bisa
+   dianggap nasihat hukum atas perkara pembaca, padahal ditulis tanpa mengetahui
+   fakta perkaranya. */
+.foot-disclaimer{max-width:640px;line-height:1.65;}
+
+/* ---------- Halaman detail ---------- */
+.detail{padding:56px 0 96px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);
+  margin-bottom:36px;transition:color .2s;}
+.back-link:hover{color:var(--accent);}
+.detail-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,4.4vw,50px);
+  font-weight:600;line-height:1.12;letter-spacing:-.015em;margin:0 0 20px;max-width:860px;}
+.detail-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);
+  margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--line);}
+/* white-space:pre-line supaya paragraf yang dipisah "\n\n" di database tetap
+   jadi paragraf, tanpa perlu menyimpan HTML mentah dari sumber yang tidak
+   dipercaya. */
+.detail-body{font-size:17px;line-height:1.9;color:var(--ink-soft);max-width:760px;
+  white-space:pre-line;}
+.detail-body strong{color:var(--ink);}
+.service-list{list-style:none;padding:0;margin:36px 0 0;display:grid;
+  grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.service-list li{background:var(--card);padding:18px 22px;font-size:14.5px;display:flex;gap:12px;}
+.service-list li::before{content:'—';color:var(--accent);flex:none;}
+.detail-aside{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;margin:48px 0 0;max-width:760px;}
+.detail-aside h4{font-family:'Playfair Display',Georgia,serif;font-size:18px;margin:0 0 8px;font-weight:600;}
+.detail-aside p{font-size:14.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 20px;}
+.related-card{display:block;border:1px solid var(--line);border-left:2px solid var(--accent);
+  border-radius:var(--radius);padding:20px 24px;margin:40px 0;max-width:760px;background:var(--card);
+  transition:border-color .2s ease;}
+.related-card:hover{border-color:var(--accent);}
+.related-card small{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  font-weight:600;}
+.related-card p{font-family:'Playfair Display',Georgia,serif;font-size:18px;margin:8px 0 0;line-height:1.4;}
+.lawyer-detail-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:start;}
+.lawyer-detail-photo{aspect-ratio:3/3.6;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(165deg,var(--accent-soft),var(--paper-2));display:flex;
+  align-items:center;justify-content:center;overflow:hidden;}
+.lawyer-detail-photo img{width:100%;height:100%;object-fit:cover;}
+.lawyer-detail-photo .lawyer-initials{font-size:56px;}
+.credentials{list-style:none;padding:0;margin:28px 0 0;}
+.credentials li{padding:14px 0;border-top:1px solid var(--line);font-size:14.5px;
+  color:var(--ink-soft);line-height:1.6;}
+
+/* ---------- Status ---------- */
+.state{color:var(--ink-soft);font-size:15px;padding:28px 0;}
+.state.error{color:var(--danger);}
+.notfound{padding:120px 0;text-align:center;}
+.notfound h1{font-family:'Playfair Display',Georgia,serif;font-size:64px;margin:0 0 12px;font-weight:600;}
+.notfound p{color:var(--ink-soft);margin:0 0 32px;}
+
+/* ---------- Responsif ---------- */
+@media(max-width:960px){
+  section{padding:72px 0;}
+  .hero{padding:64px 0;}
+  .hero-grid,.about-grid,.consult-grid,.lawyer-detail-grid{grid-template-columns:1fr;gap:40px;}
+  .value-grid{grid-template-columns:repeat(2,1fr);}
+  .practice-grid,.insight-grid{grid-template-columns:repeat(2,1fr);}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);padding:8px 28px 20px;
+  }
+  .nav-links.open a{padding:14px 0;border-bottom:1px solid var(--line);border-top:none;}
+  .nav-toggle{display:flex;}
+  nav{position:relative;}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px;}
+  .value-grid,.practice-grid,.insight-grid,.team-grid,.foot-grid{grid-template-columns:1fr;}
+  .service-list{grid-template-columns:1fr;}
+  .field-row{grid-template-columns:1fr;}
+  form{padding:26px 22px;}
+  .hero-stats{gap:28px;}
+  .nav-cta{display:none;}
+  .info-line{flex-direction:column;gap:4px;}
+  .info-line b{width:auto;}
+}
